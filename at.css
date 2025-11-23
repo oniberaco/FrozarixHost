@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top left, #0d0d1f, #070710);
+  color: #f3f3f3;
+  line-height: 1.7;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(90deg, #6b00ff, #00d0ff);
+  color: white;
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.4);
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0.3rem 0;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.15);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+}
+
+h2 {
+  color: #00d0ff;
+  border-left: 4px solid #6b00ff;
+  padding-left: 0.6rem;
+  margin-top: 0;
+}
+
+ul {
+  list-style: square;
+  padding-left: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #999;
+}

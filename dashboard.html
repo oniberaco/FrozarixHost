@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ZerionHost — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="ui-enhancements.css">
+</head>
+<body>
+  <header class="dh-header">
+    <div class="brand">ZerionHost</div>
+    <nav class="dh-nav">
+      <a href="index.html">Főoldal</a>
+      <a href="login.html">Bejelentkezés</a>
+      <button id="logout" class="btn small">Kijelentkezés</button>
+    </nav>
+  </header>
+
+  <main class="dh-main">
+    <aside class="dh-side">
+      <ul>
+        <li class="active">Áttekintés</li>
+        <li>Statisztika</li>
+        <li>Felhasználók</li>
+        <li>Beállítások</li>
+      </ul>
+    </aside>
+
+    <section class="dh-content">
+      <h1>Áttekintés</h1>
+      <div class="cards">
+        <div class="card stat">
+          <h3>Aktív felhasználók</h3>
+          <div id="stat-users" class="stat-value">—</div>
+        </div>
+        <div class="card stat">
+          <h3>Új regisztrációk (7d)</h3>
+          <div id="stat-signups" class="stat-value">—</div>
+        </div>
+        <div class="card stat">
+          <h3>Erőforrás használat</h3>
+          <div id="stat-usage" class="stat-value">—</div>
+        </div>
+      </div>
+
+      <section class="panel" id="live-data">
+        <h2>Élő adatok</h2>
+        <pre id="api-output">Waiting for data...</pre>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    // Simple client: fetch dashboard data from /api/dashboard using Bearer token stored in localStorage as zh_token
+    async function fetchDashboard(){
+      const out = document.getElementById('api-output');
+      const token = localStorage.getItem('zh_token');
+      try{
+        const res = await fetch('/api/dashboard', { headers: { 'Authorization': token ? 'Bearer ' + token : '' }});
+        if(res.status === 401){ out.textContent = 'Not authorized. Please login.'; return }
+        const json = await res.json();
+        document.getElementById('stat-users').textContent = json.activeUsers;
+        document.getElementById('stat-signups').textContent = json.signups7d;
+        document.getElementById('stat-usage').textContent = json.resourceUsage;
+        out.textContent = JSON.stringify(json, null, 2);
+      }catch(err){ out.textContent = 'Fetch error: ' + err.message }
+    }
+    window.addEventListener('load', ()=>{ fetchDashboard(); });
+
+    document.getElementById('logout').addEventListener('click', ()=>{ localStorage.removeItem('zh_token'); localStorage.removeItem('zh_currentUser'); location.href = 'login.html' });
+  </script>
+  <script src="alert.js"></script>
+</body>
+</html>

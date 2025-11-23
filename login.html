@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Frozarix Host — Bejelentkezés</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+</head>
+<body>
+    <main class="wrap">
+        <section class="card">
+            <header class="card-header">
+                <h1>Frozarix Host</h1>
+                <p class="subtitle">Szia! Jelentkezz be vagy hozz létre fiókot!</p>
+            </header>
+
+            <div class="tabs">
+                <button class="tab active" data-target="login">Bejelentkezés</button>
+                <button class="tab" data-target="register">Regisztráció</button>
+            </div>
+
+            <div class="panel" id="login">
+                <form id="loginForm">
+                    <label>
+                        Felhasználó / Email
+                        <input type="text" name="user" required autocomplete="username">
+                    </label>
+                    <label>
+                        Jelszó
+                        <input type="password" name="password" required autocomplete="current-password">
+                    </label>
+                    <div class="actions">
+                        <button type="submit" class="btn primary">Bejelentkezés</button>
+                        <button type="button" id="logoutBtn" class="btn ghost" style="display:none;">Kijelentkezés</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="panel" id="register" style="display:none;">
+                <form id="registerForm">
+                    <label>
+                        Felhasználónév
+                        <input type="text" name="username" required autocomplete="username">
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" required autocomplete="email">
+                    </label>
+                    <label>
+                        Jelszó
+                        <input type="password" name="password" required autocomplete="new-password">
+                    </label>
+                    <label>
+                        Jelszó megerősítése
+                        <input type="password" name="password2" required>
+                    </label>
+                    <div class="actions">
+                        <button type="submit" class="btn primary">Regisztráció</button>
+                    </div>
+                </form>
+            </div>
+                    </label>
+                </div>
+                <div id="message" class="message" aria-live="polite"></div>
+            </div>
+            </footer>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+    <script src="alert.js"></script>
+</body>
+</html>

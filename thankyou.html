@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Köszönjük — Támogatás</title>
+ <!--CSS - "tippage.css"-->
+  <link rel="stylesheet" href="tippage.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <header class="brand">
+       <!--Logo assets/ZerionLogo.png-->
+        <img src="/assets/ZerionLogo.png" alt="PlanitumMC logó" class="logo" onerror="this.style.display='none'" />
+        <h1>Köszönjük, hogy támogatott!</h1>
+      </header>
+      
+      <p class="lead">A támogatásod óriási segítség — komolyan. Köszönjük, hogy részese vagy a közösségünknek!</p>
+
+      <div class="rewards">
+        <div class="reward">
+          <h3>Mit kapsz cserébe?</h3>
+          <ul>
+            <li>Különleges Discord rang</li>
+          </ul>
+        </div>
+        <div class="cta">
+          <a href="/" class="btn">Vissza a főoldalra</a>
+        </div>
+      </div>
+
+      <footer class="meta">
+        <p>Ha bármilyen kérdésed van, írj nekünk: <a href="mailto:support@zerionhost.hu">support@zerionhost.hu</a></p>
+      </footer>
+    </section>
+
+    <aside class="confetti" aria-hidden="true"></aside>
+  </main>
+
+  <script>
+    // Egyszerű konfetti-animáció
+    (function(){
+      const c = document.querySelector('.confetti');
+      if(!c) return;
+      for(let i=0;i<30;i++){
+        const el = document.createElement('span');
+        el.className = 'piece';
+        el.style.left = (Math.random()*100|0)+'%';
+        el.style.animationDelay = (Math.random()*1.5)+'s';
+        c.appendChild(el);
+      }
+    })();
+  </script>
+</body>
+</html>
